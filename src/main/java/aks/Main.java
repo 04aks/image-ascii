@@ -7,6 +7,8 @@ public class Main {
         Manager manager = new Manager();
         BufferedImage image = manager.getImage("/alcatraz.jpg");
         System.out.println(image);
+        // turn it gray
+        manager.grayscaleImage(image);
     }
 
     
