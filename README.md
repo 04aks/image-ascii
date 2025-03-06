@@ -1,6 +1,6 @@
 # Image to ASCII - java
 
-##Maven dependency:
+## Maven dependency:
 ```xml
   <repositories>
         <repository>
@@ -17,7 +17,7 @@
   </dependency>
 ```
 
-##How to use
+## How to use
 ```java
   int scale = 50;
 
