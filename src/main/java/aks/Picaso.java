@@ -1,6 +1,9 @@
 package aks;
 
 import java.awt.Color;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -21,6 +24,8 @@ public class Picaso {
         BufferedImage grayedImage = getImage(grayImgFile);
         BufferedImage resized = resizeImage(grayedImage, size);
         String art = asciiArt(resized);
+        // Copy it to the system's clipboard.
+        copyTextToClipboard(art);
         return art;
     }
 
@@ -110,5 +115,11 @@ public class Picaso {
     public char getChar(int grade){
         int index = (int) ((grade / 255.0) * (ASCII_CHARS.length() - 1));
         return ASCII_CHARS.charAt(index);
+    }
+
+    public void copyTextToClipboard(String text){
+        StringSelection stringSelection = new StringSelection(text);
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+        clipboard.setContents(stringSelection, null);
     }
 }
